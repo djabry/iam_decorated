@@ -1,0 +1,3 @@
+describe("IAM decorator", () => {
+
+});
