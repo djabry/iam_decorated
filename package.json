@@ -8,15 +8,19 @@
         "@bazel/ibazel": "latest",
         "@bazel/jasmine": "^0.34.0",
         "@bazel/typescript": "latest",
+        "@types/chai": "^4.1.7",
+        "@types/jasmine": "^3.3.16",
         "aws-sdk": "^2.501.0",
         "jasmine": "^3.4.0",
         "tslint": "^5.18.0",
-        "typescript": "3.5.3",
-        "@types/jasmine": "^3.3.16"
+        "typescript": "3.5.3"
     },
     "scripts": {
         "clean": "bazel clean",
         "build": "bazel build //...",
         "test": "bazel test //..."
+    },
+    "dependencies": {
+        "chai": "^4.2.0"
     }
 }

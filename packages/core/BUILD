@@ -6,7 +6,6 @@ ts_library(
     name = "core",
     srcs = glob(["**/*.ts"], exclude = ["**/*.spec.ts"]),
     deps = [
-        "@npm//@types/jasmine"
     ],
 )
 
@@ -14,7 +13,10 @@ ts_library(
     name = "core_spec",
     srcs = glob(["**/*.spec.ts"]),
     deps = [
-        "@npm//@types/jasmine"
+        ":core",
+        "@npm//@types/jasmine",
+        "@npm//@types/chai",
+        "@npm//chai",
     ],
 )
 
@@ -24,6 +26,7 @@ jasmine_node_test(
         name = "core_test",
         deps = [
             ":core_spec",
-            "@npm//jasmine"
+            "@npm//jasmine",
+            "@npm//chai"
         ],
     )
