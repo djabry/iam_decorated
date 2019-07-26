@@ -6,12 +6,16 @@
         "@bazel/bazel": "latest",
         "@bazel/buildifier": "latest",
         "@bazel/ibazel": "latest",
+        "@bazel/jasmine": "^0.34.0",
         "@bazel/typescript": "latest",
         "aws-sdk": "^2.501.0",
+        "jasmine": "^3.4.0",
         "tslint": "^5.18.0",
-        "typescript": "3.5.3"
+        "typescript": "3.5.3",
+        "@types/jasmine": "^3.3.16"
     },
     "scripts": {
+        "clean": "bazel clean",
         "build": "bazel build //...",
         "test": "bazel test //..."
     }
