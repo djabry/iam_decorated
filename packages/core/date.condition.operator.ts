@@ -4,5 +4,5 @@ export enum DateConditionOperator {
     DateLessThan = "DateLessThan",
     DateLessThanEquals = "DateLessThanEquals",
     DateGreaterThan = "DateGreaterThan",
-    DateGreaterThanEquals = "DateGreaterThanEquals"
+    DateGreaterThanEquals = "DateGreaterThanEquals",
 }

@@ -6,6 +6,7 @@
     "exclude": [
       "node_modules",
       "**/*.d.ts"
-    ]
+    ],
+    "interface-name": [true, "never-prefix"]
   }
 }

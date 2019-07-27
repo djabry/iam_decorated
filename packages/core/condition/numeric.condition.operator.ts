@@ -5,5 +5,5 @@ export enum NumericConditionOperator {
     NumericLessThan = "NumericLessThan",
     NumericLessThanEquals = "NumericLessThanEquals",
     NumericGreaterThan = "NumericGreaterThan",
-    NumericGreaterThanEqual = "NumericGreaterThanEqual"
+    NumericGreaterThanEqual = "NumericGreaterThanEqual",
 }

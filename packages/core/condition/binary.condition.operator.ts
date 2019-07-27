@@ -1,3 +1,3 @@
 export enum BinaryConditionOperator {
-    BinaryEquals = "BinaryEquals"
+    BinaryEquals = "BinaryEquals",
 }

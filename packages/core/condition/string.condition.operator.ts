@@ -4,5 +4,5 @@ export enum StringConditionOperator {
     StringNotEquals = "StringNotEquals",
     StringEqualsIgnoreCase = "StringEqualsIgnoreCase",
     StringNotEqualsIgnoreCase = "StringNotEqualsIgnoreCase",
-    StringNotLike = "StringNotLike"
+    StringNotLike = "StringNotLike",
 }

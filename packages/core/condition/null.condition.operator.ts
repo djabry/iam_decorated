@@ -1,3 +1,3 @@
 export enum NullConditionOperator {
-    Null = "Null"
+    Null = "Null",
 }
