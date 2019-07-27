@@ -1,0 +1,9 @@
+{
+  "name": "@djabry/iam-decorated-serverless-plugin",
+  "version": "0.0.0-PLACEHOLDER",
+  "main": "index.js",
+  "dependencies": {
+    "@djabry/iam-decorated-core":  "0.0.0-PLACEHOLDER"
+  }
+}
+

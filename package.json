@@ -10,17 +10,17 @@
         "@bazel/typescript": "latest",
         "@types/chai": "^4.1.7",
         "@types/jasmine": "^3.3.16",
+        "@types/serverless": "^1.18.2",
         "aws-sdk": "^2.501.0",
         "jasmine": "^3.4.0",
+        "serverless": "^1.48.4",
         "tslint": "^5.18.0",
-        "typescript": "3.5.3"
+        "typescript": "3.5.3",
+        "chai": "^4.2.0"
     },
     "scripts": {
         "clean": "bazel clean",
         "build": "bazel build //...",
         "test": "bazel test //..."
-    },
-    "dependencies": {
-        "chai": "^4.2.0"
     }
 }

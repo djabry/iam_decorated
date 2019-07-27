@@ -9,10 +9,15 @@
       "es2018",
       "dom"
     ],
-    "sourceMap": true
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@djabry/*": ["*", "bin/packages/*", "genfiles/packages/*"]
+    }
   },
   "exclude": [
     "**/*.spec.ts",
     "node_modules"
-  ]
+  ],
+
 }

@@ -6,6 +6,7 @@ all_sources = ["**/*.ts"]
 all_tests = ["**/*.spec.ts", "**/test/**"]
 
 ts_library(
+    module_name = "@djabry/iam-decorated-core",
     name = "core",
     srcs = glob(all_sources, exclude = all_tests),
     deps = [
