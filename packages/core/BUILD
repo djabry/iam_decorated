@@ -2,16 +2,19 @@ package(default_visibility = ["//visibility:public"])
 
 load("@npm_bazel_typescript//:index.bzl", "ts_library")
 
+all_sources = "**/*.ts"
+all_tests = "**/*.spec.ts"
+
 ts_library(
     name = "core",
-    srcs = glob(["**/*.ts"], exclude = ["**/*.spec.ts"]),
+    srcs = glob([all_sources], exclude = [all_tests]),
     deps = [
     ],
 )
 
 ts_library(
     name = "core_spec",
-    srcs = glob(["**/*.spec.ts"]),
+    srcs = glob([all_tests]),
     deps = [
         ":core",
         "@npm//@types/jasmine",
