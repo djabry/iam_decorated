@@ -40,7 +40,6 @@ export class IamPlugin {
         for (const functionDefinition of functionDefinitionsWithArtifacts) {
             const statements = await this.extractStatementsFromFunction(functionDefinition);
             const policies = await this.toPolicies(statements);
-
         }
     }
 

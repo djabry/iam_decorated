@@ -8,18 +8,22 @@
         "@bazel/ibazel": "latest",
         "@bazel/jasmine": "^0.34.0",
         "@bazel/typescript": "latest",
+        "@types/aws-lambda": "^8.10.31",
         "@types/chai": "^4.1.7",
         "@types/jasmine": "^3.3.16",
+        "@types/node": "^12.6.8",
         "@types/serverless": "^1.18.2",
         "aws-sdk": "^2.501.0",
+        "chai": "^4.2.0",
         "jasmine": "^3.4.0",
         "serverless": "^1.48.4",
+        "serverless-plugin-typescript": "^1.1.9",
         "tslint": "^5.18.0",
-        "typescript": "3.5.3",
-        "chai": "^4.2.0"
+        "typescript": "3.5.3"
     },
     "scripts": {
         "clean": "bazel clean",
+        "run-example": "bazel run //iam-decorated-serverless-example:sls_package",
         "build": "bazel build //...",
         "test": "bazel test //..."
     }

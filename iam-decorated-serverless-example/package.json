@@ -1,0 +1,12 @@
+{
+  "name": "@djabry/iam-decorated-serverless-example",
+  "version": "0.0.0-PLACEHOLDER",
+  "devDependencies": {
+    "@djabry/iam-decorated-serverless-plugin":  "0.0.0-PLACEHOLDER",
+    "@types/aws-lambda": "^8.10.31",
+    "serverless": "^1.48.4",
+    "aws-sdk": "^2.501.0",
+    "@types/node": "^12.6.8"
+  }
+}
+

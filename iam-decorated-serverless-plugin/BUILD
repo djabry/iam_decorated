@@ -14,6 +14,7 @@ ts_library(
         "@npm//@types/node",
         "@npm//serverless",
         "@npm//@types/serverless",
+        "@npm//aws-sdk",
     ],
 )
 

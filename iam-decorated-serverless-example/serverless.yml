@@ -1,0 +1,13 @@
+service: iam-decorated
+
+plugins:
+  - serverless-plugin-typescript
+  - "@djabry/iam-decorated-serverless-plugin"
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+
+functions:
+  example:
+    handler: index.handler
