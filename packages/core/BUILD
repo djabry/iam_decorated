@@ -33,3 +33,11 @@ jasmine_node_test(
             "@npm//chai"
         ],
     )
+
+load("@build_bazel_rules_nodejs//:defs.bzl", "npm_package")
+
+npm_package(
+    name = "core_package",
+    srcs = ["package.json"],
+    deps = [":core"],
+)
