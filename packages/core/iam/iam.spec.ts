@@ -1,7 +1,7 @@
 import {expect} from "chai";
-import {Effect} from "./effect";
+import {Effect} from "../effect";
 import {Iam} from "./iam";
-import {StatementStore} from "./statement.store";
+import {StatementStore} from "../statement/statement.store";
 
 describe("IAM decorator", () => {
 

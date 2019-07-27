@@ -1,4 +1,4 @@
-import {DateConditionOperator} from "../date.condition.operator";
+import {DateConditionOperator} from "./date.condition.operator";
 import {ArnConditionOperator} from "./arn.condition.operator";
 import {BinaryConditionOperator} from "./binary.condition.operator";
 import {BooleanConditionOperator} from "./boolean.condition.operator";
