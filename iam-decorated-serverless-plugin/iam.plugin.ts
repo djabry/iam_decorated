@@ -9,7 +9,7 @@ import {FunctionDefinition, Options} from "serverless";
 export class IamPlugin {
 
     public hooks = {
-        "package:createDeploymentArtifacts": () => this.compileStatements(),
+        "after:package:createDeploymentArtifacts": () => this.compileStatements(),
     };
 
     private policyGenerator = new PolicyGenerator();
@@ -33,14 +33,24 @@ export class IamPlugin {
     }
 
     public async compileStatements() {
-        const functionDefinitionsWithArtifacts = this.serverless.service.getAllFunctionsNames()
+        this.serverless.cli.log("Compiling IAM statements...");
+        const allFunctions = this.serverless.service.getAllFunctions();
+        this.serverless.cli.log(JSON.stringify(allFunctions));
+        const functionDefinitionsWithArtifacts = allFunctions
             .map((functionName) => this.serverless.service.getFunction(functionName))
             .filter((functionDef) => !!functionDef.package.artifact);
 
+        this.serverless.cli.log(`Found ${functionDefinitionsWithArtifacts.length} valid functions`);
         for (const functionDefinition of functionDefinitionsWithArtifacts) {
+            this.serverless.cli.log(`Scanning ${functionDefinition.package.artifact}`);
             const statements = await this.extractStatementsFromFunction(functionDefinition);
             const policies = await this.toPolicies(statements);
+            this.serverless.cli.log(`Found ${policies.length} policies for ${functionDefinition.name}`);
         }
+
+        const fullPackage = (this.serverless.service as any).package;
+        this.serverless.cli.log(JSON.stringify(fullPackage));
+
     }
 
 }

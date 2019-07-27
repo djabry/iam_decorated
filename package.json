@@ -19,11 +19,12 @@
         "serverless": "^1.48.4",
         "serverless-plugin-typescript": "^1.1.9",
         "tslint": "^5.18.0",
-        "typescript": "3.5.3"
+        "typescript": "3.5.3",
+        "yarn": "^1.17.3"
     },
     "scripts": {
-        "clean": "bazel clean",
         "run-example": "bazel run //iam-decorated-serverless-example:sls_package",
+        "clean": "bazel clean",
         "build": "bazel build //...",
         "test": "bazel test //..."
     }

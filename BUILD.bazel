@@ -19,6 +19,7 @@ nodejs_binary(
     templated_args = ["--node_options=--preserve-symlinks"],
 )
 
+
 load("@com_github_bazelbuild_buildtools//buildifier:def.bzl", "buildifier")
 
 buildifier(

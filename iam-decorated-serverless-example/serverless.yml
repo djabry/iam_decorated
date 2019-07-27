@@ -1,13 +1,20 @@
 service: iam-decorated
 
 plugins:
-  - serverless-plugin-typescript
   - "@djabry/iam-decorated-serverless-plugin"
 
 provider:
   name: aws
   runtime: nodejs10.x
-
+  iamRoleStatements:
+    - Effect: "Allow"
+      Resource: "*"
+      Action:
+        - "dynamodb:*"
 functions:
-  example:
-    handler: index.handler
+  foo:
+    handler: ./foo.handler
+  bar:
+    handler: ./bar.handler
+  baz:
+    handler: ./foo.handler
