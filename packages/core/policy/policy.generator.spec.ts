@@ -1,7 +1,7 @@
 import {expect} from "chai";
 import {Effect} from "../effect";
-import {PolicyGenerator} from "./policy.generator";
 import {Statement} from "../statement/statement";
+import {PolicyGenerator} from "./policy.generator";
 
 describe("Policy generator", () => {
     let instance: PolicyGenerator;

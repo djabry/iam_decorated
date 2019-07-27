@@ -1,6 +1,6 @@
+import {Statement} from "../statement/statement";
 import {defaultPolicyVersion} from "./default.policy.version";
 import {Policy} from "./policy";
-import {Statement} from "../statement/statement";
 
 export class PolicyGenerator {
     public toPolicies(statements: Statement[]): Policy[] {
