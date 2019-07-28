@@ -12,6 +12,7 @@ ts_library(
     deps = [
         "//iam-decorated-core:core",
         "@npm//@types/node",
+        "@npm//@types/aws-lambda",
         "@npm//serverless",
         "@npm//@types/serverless",
         "@npm//aws-sdk",
@@ -26,6 +27,7 @@ ts_library(
         "@npm//@types/node",
         "@npm//@types/jasmine",
         "@npm//@types/chai",
+        "@npm//aws-sdk",
         "@npm//chai",
     ],
 )
@@ -37,6 +39,7 @@ jasmine_node_test(
         deps = [
             ":sls_plugin_spec",
             "@npm//jasmine",
+            "@npm//aws-sdk",
             "@npm//chai"
         ],
     )

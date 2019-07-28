@@ -26,6 +26,7 @@ ts_library(
         ":sls_example",
         "@npm//@types/node",
         "@npm//@types/jasmine",
+        "@npm//@types/aws-lambda",
         "@npm//@types/chai",
         "@npm//chai",
     ],
@@ -60,6 +61,20 @@ nodejs_binary(
     ],
     entry_point = "@npm//:node_modules/serverless/bin/serverless"
 )
+
+nodejs_binary(
+    name = "sls_deploy",
+    data = [
+        ":sls_example_package",
+        "@npm//serverless",
+        "@npm//serverless-plugin-typescript",
+        "//iam-decorated-serverless-plugin:sls_plugin",
+        "@npm//@types/node",
+        "@npm//@types/aws-lambda",
+    ],
+    entry_point = "@npm//:node_modules/serverless/bin/serverless"
+)
+
 
 genrule(
     name = "compiled_src",
