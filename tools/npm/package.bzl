@@ -1,3 +1,4 @@
+# Based on https://github.com/dataform-co/dataform/blob/master/tools/npm/package.bzl
 
 load("@build_bazel_rules_nodejs//:defs.bzl", "npm_package")
 
