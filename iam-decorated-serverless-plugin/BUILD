@@ -2,6 +2,7 @@ package(default_visibility = ["//visibility:public"])
 
 load("@npm_bazel_typescript//:index.bzl", "ts_library")
 
+
 all_sources = ["*.ts"]
 all_tests = ["*.spec.ts", "test/**"]
 
@@ -44,9 +45,9 @@ jasmine_node_test(
         ],
     )
 
-load("@build_bazel_rules_nodejs//:defs.bzl", "npm_package")
+load("//tools/npm:package.bzl", "tar_npm_package")
 
-npm_package(
+tar_npm_package(
     name = "package",
     srcs = ["package.json"],
     deps = [":lib"],
