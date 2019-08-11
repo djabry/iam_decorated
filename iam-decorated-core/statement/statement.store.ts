@@ -1,5 +1,5 @@
 import {Statement} from "./statement";
 
 export class StatementStore {
-    public static statements: Statement[];
+    public static statements: Statement[] = [];
 }

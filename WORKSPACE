@@ -58,6 +58,16 @@ http_archive(
     url = "https://github.com/bazelbuild/buildtools/archive/master.zip",
 )
 
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
+
+# Required for access to js_library, ts_library, js_test, web_bundle, etc.
+git_repository(
+  name = "bazel_javascript",
+  remote = "https://github.com/zenclabs/bazel-javascript.git",
+  commit = "2a5bc71fe864de2e1f3e7d3b2236d30a0e8f1abe",
+)
+
+
 
 # Install the nodejs "bootstrap" package
 # This provides the basic tools for running and packaging nodejs programs in Bazel
@@ -85,3 +95,5 @@ install_bazel_dependencies()
 # Setup TypeScript toolchain
 load("@npm_bazel_typescript//:index.bzl", "ts_setup_workspace")
 ts_setup_workspace()
+
+

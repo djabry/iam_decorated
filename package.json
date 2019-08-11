@@ -18,12 +18,16 @@
         "jasmine": "^3.4.0",
         "serverless": "^1.48.4",
         "serverless-plugin-typescript": "^1.1.9",
+        "serverless-webpack": "^5.3.1",
+        "serverless-webpack-plugin": "^0.4.5",
+        "ts-loader": "^6.0.4",
         "tslint": "^5.18.0",
         "typescript": "3.5.3",
+        "webpack": "^4.38.0",
         "yarn": "^1.17.3"
     },
     "scripts": {
-        "run-example": "bazel run //iam-decorated-serverless-example:sls_package",
+        "run-example": "bazel run //iam-decorated-serverless-example:sls_info",
         "clean": "bazel clean",
         "build": "bazel build //...",
         "test": "bazel test //..."

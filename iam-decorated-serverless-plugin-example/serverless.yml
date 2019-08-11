@@ -2,6 +2,7 @@ service: iam-decorated
 
 plugins:
   - "@djabry/iam-decorated-serverless-plugin"
+  - serverless-plugin-typescript
 
 provider:
   name: aws
@@ -9,7 +10,7 @@ provider:
 functions:
   foo:
     handler: ./foo.handler
-  bar:
-    handler: ./bar.handler
-  baz:
-    handler: ./foo.handler
+#  bar:
+#    handler: ./bar.handler
+#  baz:
+#    handler: ./foo.handler

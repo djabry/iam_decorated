@@ -25,17 +25,19 @@ export class IamPlugin {
 
     public async extractStatementsFromFunction(functionName: string): Promise<Statement[]> {
         const lambda = new Lambda({region: this.serverless.getProvider("aws").getRegion()});
+        const functionDefinition = this.serverless.service.getFunction(functionName);
         const request: RequiredPermissionsRequest = {
             requiredPermissionsRequestId: requiredPermissionsId,
         };
         const response = await lambda.invoke({
-            FunctionName: functionName,
+            FunctionName: functionDefinition.name,
             Payload: JSON.stringify(request),
         }).promise();
 
         if (response.FunctionError) {
             this.serverless.cli.log(`Failed to extract permissions from ${functionName}:`);
             this.serverless.cli.log(response.FunctionError);
+            this.serverless.cli.log(response.LogResult);
             return [];
         }
 

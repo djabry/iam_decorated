@@ -2,15 +2,15 @@ package(default_visibility = ["//visibility:public"])
 
 load("@npm_bazel_typescript//:index.bzl", "ts_library")
 
-all_sources = ["**/*.ts"]
-all_tests = ["**/*.spec.ts", "**/test/**"]
+all_sources = ["*.ts"]
+all_tests = ["*.spec.ts", "test/**"]
 
 ts_library(
     module_name = "@djabry/iam-decorated-serverless-plugin",
-    name = "sls_plugin",
+    name = "lib",
     srcs = glob(all_sources, exclude = all_tests),
     deps = [
-        "//iam-decorated-core:core",
+        "//iam-decorated-core:lib",
         "@npm//@types/node",
         "@npm//@types/aws-lambda",
         "@npm//serverless",
@@ -20,10 +20,10 @@ ts_library(
 )
 
 ts_library(
-    name = "sls_plugin_spec",
+    name = "test_lib",
     srcs = glob(all_tests),
     deps = [
-        ":sls_plugin",
+        ":lib",
         "@npm//@types/node",
         "@npm//@types/jasmine",
         "@npm//@types/chai",
@@ -35,9 +35,9 @@ ts_library(
 load("@npm_bazel_jasmine//:index.bzl", "jasmine_node_test")
 
 jasmine_node_test(
-        name = "sls_plugin_test",
+        name = "test",
         deps = [
-            ":sls_plugin_spec",
+            ":test_lib",
             "@npm//jasmine",
             "@npm//aws-sdk",
             "@npm//chai"
@@ -47,7 +47,7 @@ jasmine_node_test(
 load("@build_bazel_rules_nodejs//:defs.bzl", "npm_package")
 
 npm_package(
-    name = "sls_plugin_package",
+    name = "package",
     srcs = ["package.json"],
-    deps = [":sls_plugin"],
+    deps = [":lib"],
 )

@@ -7,17 +7,17 @@ all_tests = ["**/*.spec.ts", "**/test/**"]
 
 ts_library(
     module_name = "@djabry/iam-decorated-core",
-    name = "core",
+    name = "lib",
     srcs = glob(all_sources, exclude = all_tests),
     deps = [
     ],
 )
 
 ts_library(
-    name = "core_spec",
+    name = "test_lib",
     srcs = glob(all_tests),
     deps = [
-        ":core",
+        ":lib",
         "@npm//@types/node",
         "@npm//@types/jasmine",
         "@npm//@types/chai",
@@ -28,9 +28,9 @@ ts_library(
 load("@npm_bazel_jasmine//:index.bzl", "jasmine_node_test")
 
 jasmine_node_test(
-        name = "core_test",
+        name = "test",
         deps = [
-            ":core_spec",
+            ":test_lib",
             "@npm//jasmine",
             "@npm//chai"
         ],
@@ -39,7 +39,7 @@ jasmine_node_test(
 load("@build_bazel_rules_nodejs//:defs.bzl", "npm_package")
 
 npm_package(
-    name = "core_package",
+    name = "package",
     srcs = ["package.json"],
-    deps = [":core"],
+    deps = [":lib"],
 )
