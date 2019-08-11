@@ -1,6 +1,7 @@
 {
   "name": "@djabry/iam-decorated-serverless-example",
   "version": "0.0.0-PLACEHOLDER",
+  "private": true,
   "scripts": {
     "deploy": "sls deploy",
     "info": "sls info"
