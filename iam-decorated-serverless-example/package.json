@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "deploy": "sls deploy",
-    "info": "sls info"
+    "info": "sls info",
+    "package": "sls package"
   },
   "devDependencies": {
     "@djabry/iam-decorated-serverless-plugin":  "0.0.0-PLACEHOLDER",

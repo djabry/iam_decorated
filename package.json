@@ -24,7 +24,8 @@
         "tslint": "^5.18.0",
         "typescript": "3.5.3",
         "webpack": "^4.38.0",
-        "yarn": "^1.17.3"
+        "yarn": "^1.17.3",
+        "command-line-args": "^5.1.1"
     },
     "scripts": {
         "run-example": "bazel run //iam-decorated-serverless-example:sls_info",
