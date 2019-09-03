@@ -6,7 +6,7 @@ all_sources = ["**/*.ts"]
 all_tests = ["**/*.spec.ts", "**/test/**"]
 
 ts_library(
-    module_name = "link-replacer",
+    module_name = "@djabry/serverless-support",
     name = "lib",
     srcs = glob(all_sources, exclude = all_tests),
     deps = [
@@ -48,4 +48,12 @@ nodejs_binary(
         "@npm//source-map-support",
     ],
     entry_point = ":link.replacer.cli.ts",
+)
+
+load("//tools/npm:package.bzl", "tar_npm_package")
+
+tar_npm_package(
+    name = "package",
+    srcs = ["package.json"],
+    deps = [":lib"],
 )

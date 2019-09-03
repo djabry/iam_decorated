@@ -20,13 +20,16 @@ load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
 
 nodejs_binary(
     name = "sls_info",
+    bootstrap = ["@djabry/serverless-support/register"],
     data = [
+        "//serverless-support:lib",
         ":node_modules",
         ":files",
         "@npm//serverless",
+        "@npm//yarn",
     ],
-    entry_point = "@npm//:node_modules/serverless/bin/serverless.js",
-    templated_args = ["--node_options=--preserve-symlinks", "info"],
+    entry_point = "@npm//:node_modules/yarn/bin/yarn.js",
+    templated_args = ["--node_options=--preserve-symlinks", "--cwd", "$(RULEDIR)", "run info"],
 )
 
 all_tests = ["*.spec.ts", "test/**"]
