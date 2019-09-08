@@ -4,7 +4,8 @@ load("//tools:node_modules.bzl", "node_modules")
 filegroup(
     name = "files",
     srcs = glob([
-        "**/*.*",
+        "*.json",
+        "*.yml",
     ]),
 )
 
@@ -22,24 +23,29 @@ nodejs_binary(
     name = "sls_info",
     bootstrap = ["@djabry/serverless-support/register"],
     data = [
+        ":lib",
         "//serverless-support:lib",
         ":node_modules",
         ":files",
         "@npm//serverless",
         "@npm//yarn",
     ],
-    entry_point = "@npm//:node_modules/yarn/bin/yarn.js",
-    templated_args = ["--node_options=--preserve-symlinks", "--cwd", "$(RULEDIR)", "run info"],
+    entry_point = ":build.ts",
+    templated_args = [],
 )
 
 all_tests = ["*.spec.ts", "test/**"]
+source_files = ["*.ts"]
 
 load("@npm_bazel_typescript//:index.bzl", "ts_library")
 
 ts_library(
-    name = "test_lib",
-    srcs = glob(all_tests),
+    name = "lib",
+    srcs = glob(source_files),
     deps = [
+        "//iam-decorated-core:lib",
+        "//iam-decorated-serverless-plugin:lib",
+        "@npm//@types/aws-lambda",
         "@npm//@types/node",
         "@npm//@types/jasmine",
         "@npm//@types/chai",
@@ -47,22 +53,3 @@ ts_library(
         "@npm//chai",
     ],
 )
-
-
-
-load("@npm_bazel_jasmine//:index.bzl", "jasmine_node_test")
-
-jasmine_node_test(
-        name = "test",
-        data = [
-            ":files",
-            ":node_modules",
-        ],
-        deps = [
-            ":test_lib",
-            "@npm//jasmine",
-            "@npm//serverless",
-            "@npm//aws-sdk",
-            "@npm//chai"
-        ],
-    )

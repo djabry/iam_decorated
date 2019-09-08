@@ -7,9 +7,11 @@
     "info": "sls info",
     "package": "sls package"
   },
-  "devDependencies": {
+  "dependencies": {
     "@djabry/iam-decorated-serverless-plugin":  "0.0.0-PLACEHOLDER",
-    "@djabry/iam-decorated-core":  "0.0.0-PLACEHOLDER",
+    "@djabry/iam-decorated-core":  "0.0.0-PLACEHOLDER"
+  },
+  "devDependencies": {
     "@types/aws-lambda": "^8.10.31",
     "serverless": "^1.48.4",
     "aws-sdk": "^2.501.0",
